@@ -263,7 +263,7 @@
                                     <h4 class="card-title">Information</h4>
                                 </div>
                                 <div>
-                                    <a href="Date-Information-Add.php" class="btn btn-link btn-soft-light">
+                                    <a href="Date-Information-Add.php" class="btn btn-link btn-soft-light" data-toggle="modal" data-target="#exampleModalAdd">
                                         Add Information
                                     </a>
                                 </div>

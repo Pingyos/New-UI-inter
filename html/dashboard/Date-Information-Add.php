@@ -205,7 +205,16 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form class="mt-3 text-center">
+                                <form method="post" class="mt-3 text-center">
+                                    <?php
+                                    if (isset($_GET['university_id'])) {
+                                        require_once 'connect.php';
+                                        $stmt = $conn->prepare("SELECT * FROM university WHERE university_id=?");
+                                        $stmt->execute([$_GET['university_id']]);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        $university = $row['university'];
+                                    }
+                                    ?>
                                     <div class="form-card text-start">
                                         <div class="row">
                                             <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
@@ -245,11 +254,11 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary  action-button float-end">Submit</button>
                                 </form>
-                                <?php require_once 'Date-Information-Add-db.php'; ?>
-                                <!-- <?php echo '<pre>';
+                                <?php echo '<pre>';
                                 print_r($_POST);
                                 echo '</pre>';
-                                ?> -->
+                                ?>
+                                <!-- <?php require_once 'Date-Information-Add-db.php'; ?> -->
                             </div>
                         </div>
                     </div>

@@ -205,48 +205,51 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form id="form-wizard1" class="mt-3 text-center">
-                                    <fieldset>
-                                        <div class="form-card text-start">
-                                            <div class="row">
-                                                <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
-                                                <input type="text" name="university_name" value="<?= $row['university']; ?>" hidden>
-                                                <input type="text" name="department" value="<?= $row['department']; ?>" hidden>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Start *</label>
-                                                        <input type="date" name="date_s" required class="form-control">
-                                                    </div>
+                                <form class="mt-3 text-center">
+                                    <div class="form-card text-start">
+                                        <div class="row">
+                                            <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
+                                            <input type="text" name="university_name" value="<?= $row['university']; ?>" hidden>
+                                            <input type="text" name="department" value="<?= $row['department']; ?>" hidden>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Start *</label>
+                                                    <input type="date" name="date_s" required class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">End *</label>
-                                                        <input type="date" name="date_s" required class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">End *</label>
+                                                    <input type="date" name="date_s" required class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Activity types *</label>
-                                                        <input type="text" name="activity" required class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Activity types *</label>
+                                                    <input type="text" name="activity" required class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Name Surname *</label>
-                                                        <input type="text" name="name" required class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Name Surname *</label>
+                                                    <input type="text" name="name" required class="form-control">
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Details *</label>
-                                                        <textarea class="form-control" name="details" style="height: 150px"></textarea>
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-label">Details *</label>
+                                                    <textarea class="form-control" name="details" style="height: 150px"></textarea>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary  action-button float-end">Next</button>
-                                    </fieldset>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary  action-button float-end">Submit</button>
                                 </form>
+                                <?php require_once 'Date-Information-Add-db.php'; ?>
+                                <!-- <?php echo '<pre>';
+                                print_r($_POST);
+                                echo '</pre>';
+                                ?> -->
                             </div>
                         </div>
                     </div>

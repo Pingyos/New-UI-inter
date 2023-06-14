@@ -263,7 +263,7 @@
                                     <h4 class="card-title">Information</h4>
                                 </div>
                                 <div>
-                                    <a href="Date-Information-Add.php" class="btn btn-link btn-soft-light" data-toggle="modal" data-target="#exampleModalAdd">
+                                    <a href="Date-Information-Add.php?university_id=<?= $row['university_id']; ?>" class="btn btn-link btn-soft-light">
                                         Add Information
                                     </a>
                                 </div>
@@ -314,7 +314,7 @@
                                                                     </svg>
                                                                 </span>
                                                             </a>
-                                                            <a class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="Date-University-Add.php?university_id=<?= $t1['university_id']; ?>">
+                                                            <a class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="Del-Information.php?id=<?= $t1['id']; ?>">
                                                                 <span class="btn-inner">
                                                                     <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
                                                                         <path d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>

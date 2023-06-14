@@ -13,7 +13,7 @@ if (
     $university_id = $_POST['university_id'];
     $date_s = $_POST['date_s'];
     $date_e = $_POST['date_e'];
-    $activity = implode(" , ", $_POST['activity']);
+    $activity = $_POST['activity'];
     $name = $_POST['name'];
     $details = $_POST['details'];
     $department = $_POST['department'];
@@ -53,7 +53,7 @@ if (
           timer: 1500,
           showConfirmButton: false
         }, function(){
-          window.location = "check_date.php?university_id=' . $university_id . '";
+          window.location = "Date-University-View.php?university_id=' . $university_id . '";
         });
       </script>';
     } else {
@@ -65,7 +65,7 @@ if (
           timer: 1500,
           showConfirmButton: false
         }, function(){
-          window.location.href = "date_u.php";
+          window.location.href = "Date-University.php";
         });
       </script>';
     }

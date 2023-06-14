@@ -229,7 +229,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">End *</label>
-                                                    <input type="date" name="date_s" required class="form-control">
+                                                    <input type="date" name="date_e" required class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -254,11 +254,11 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary  action-button float-end">Submit</button>
                                 </form>
-                                <?php echo '<pre>';
-                                print_r($_POST);
-                                echo '</pre>';
-                                ?>
-                                <!-- <?php require_once 'Date-Information-Add-db.php'; ?> -->
+                                <!-- <?php echo '<pre>';
+                                        print_r($_POST);
+                                        echo '</pre>';
+                                        ?> -->
+                                <?php require_once 'Date-Information-Add-db.php'; ?>
                             </div>
                         </div>
                     </div>

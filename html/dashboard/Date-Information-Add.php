@@ -248,7 +248,7 @@
                                                             <option>Cooperation in foreign countries</option>
                                                             <option>Co-research</option>
                                                             <option>Seminar/meeting</option>
-                                                            <option>Uisiturs</option>
+                                                            <option>Visiturs</option>
                                                         </select>
                                                     </div>
 

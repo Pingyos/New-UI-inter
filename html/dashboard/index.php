@@ -292,8 +292,8 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Total Sales</p>
-                                                <h4 class="counter">$560K</h4>
+                                                <p class="mb-2">Study visitors (Pay)</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -307,8 +307,8 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Total Profit</p>
-                                                <h4 class="counter">$185K</h4>
+                                                <p class="mb-2">Training Course</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -322,8 +322,8 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Total Cost</p>
-                                                <h4 class="counter">$375K</h4>
+                                                <p class="mb-2">Student Exchange</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -337,8 +337,8 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Revenue</p>
-                                                <h4 class="counter">$742K</h4>
+                                                <p class="mb-2">Visiting Scholar</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -352,8 +352,8 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Net Income</p>
-                                                <h4 class="counter">$150K</h4>
+                                                <p class="mb-2">Special Lecture</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -367,8 +367,8 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Today</p>
-                                                <h4 class="counter">$4600</h4>
+                                                <p class="mb-2">Sign MOU/MOA</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>
@@ -382,8 +382,53 @@
                                                 </svg>
                                             </div>
                                             <div class="progress-detail">
-                                                <p class="mb-2">Members</p>
-                                                <h4 class="counter">11.2M</h4>
+                                                <p class="mb-2">Academic Collaboration Negotiation</p>
+                                                <h4 class="counter">-</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1400">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-08" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent">
+                                                <svg class="card-slie-arrow " width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Co-research</p>
+                                                <h4 class="counter">-</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1500">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-09" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent">
+                                                <svg class="card-slie-arrow " width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Seminar/meeting</p>
+                                                <h4 class="counter">-</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide card card-slide" data-aos="fade-up" data-aos-delay="1600">
+                                    <div class="card-body">
+                                        <div class="progress-widget">
+                                            <div id="circle-progress-10" class="text-center circle-progress-01 circle-progress circle-progress-primary" data-min-value="0" data-max-value="100" data-value="30" data-type="percent">
+                                                <svg class="card-slie-arrow " width="24" viewBox="0 0 24 24">
+                                                    <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="progress-detail">
+                                                <p class="mb-2">Visiturs</p>
+                                                <h4 class="counter">-</h4>
                                             </div>
                                         </div>
                                     </div>

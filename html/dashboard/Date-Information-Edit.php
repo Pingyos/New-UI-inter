@@ -285,10 +285,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group float-end">
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="submit" class="btn btn-danger" onclick="window.history.back();">Back</button>
+                                        <a href="#" class="btn btn-danger" onclick="window.history.back();">Back</a>
+
                                     </div>
+
                                 </form>
                                 <!-- <?php echo '<pre>';
                                         print_r($_POST);

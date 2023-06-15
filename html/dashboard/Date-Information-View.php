@@ -251,7 +251,7 @@
                                             <textarea class="form-control" name="details" style="height: 350px"><?= $row['details']; ?></textarea>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn btn-primary action-button float-end" onclick="window.history.back();">Back</a>
+                                    <a href="#" class="btn btn-danger float-end" onclick="window.history.back();">Back</a>
                                 </form>
                             </div>
                         </div>

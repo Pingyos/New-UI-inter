@@ -178,6 +178,7 @@
                                 <div>
                                     <h1>Hello Devs!</h1>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -192,115 +193,73 @@
                 </div>
             </div> <!-- Nav Header Component End -->
         </div>
-        <!--Nav End-->
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
                 <div class="row">
-                    <div class="col-sm-12 col-lg-12">
+                    <div class="col-xl-12 col-lg-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
-                                    <h4 class="card-title">Edit University Information</h4>
+                                    <h4 class="card-title">View University Information</h4>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <form method="post" class="mt-3 text-center">
-                                    <?php
-                                    if (isset($_GET['id'])) {
-                                        require_once 'connect.php';
-                                        $stmt = $conn->prepare("SELECT* FROM dateinter WHERE id=?");
-                                        $stmt->execute([$_GET['id']]);
-                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                                        //ถ้าคิวรี่ผิดพลาดให้กลับไปหน้า index
-                                        if ($stmt->rowCount() < 1) {
-                                            header('Location: index.php');
-                                            exit();
-                                        }
-                                    } //isset
-                                    ?>
-                                    <div class="form-card text-start">
-                                        <div class="row">
-                                            <input type="text" name="id" value="<?= $row['id']; ?>" hidden>
-                                            <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">University</label>
-                                                    <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Department</label>
-                                                    <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Start</label>
-                                                    <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">End</label>
-                                                    <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Activity types *</label>
-                                                    <div class="col-6 justify-content-center align-items-center">
-                                                        <select name="activity[]" data-placeholder="<?= $row['activity']; ?>" multiple class="js-select2" tabindex="5">
-                                                            <option><?= $row['activity']; ?></option>
-                                                            <option>Study visitors (Pay)</option>
-                                                            <option>Training Course</option>
-                                                            <option>Student Exchange</option>
-                                                            <option>Visiting Scholar</option>
-                                                            <option>Special Lecture</option>
-                                                            <option>Sign MOU/MOA</option>
-                                                            <option>Academic Collaboration Negotiation</option>
-                                                            <option>Cooperation in foreign countries</option>
-                                                            <option>Co-research</option>
-                                                            <option>Seminar/meeting</option>
-                                                            <option>Uisiturs</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <script src="js/jquery.min.js"></script>
-                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-                                                <script src="js/main.js"></script>
-                                            </div>
 
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Name Surname</label>
-                                                    <input type="text" name="name" value="<?= $row['name']; ?>" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="form-label">Details</label>
-                                                    <textarea class="form-control" name="details" style="height: 250px"><?= $row['details']; ?></textarea>
-                                                </div>
-                                            </div>
+                            </div>
+                            <?php
+                            if (isset($_GET['id'])) {
+                                require_once 'connect.php';
+                                $stmt = $conn->prepare("SELECT* FROM dateinter WHERE id=?");
+                                $stmt->execute([$_GET['id']]);
+                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                //ถ้าคิวรี่ผิดพลาดให้กลับไปหน้า index
+                                if ($stmt->rowCount() < 1) {
+                                    header('Location: index.php');
+                                    exit();
+                                }
+                            } //isset
+                            ?>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <input type="text" name="id" value="<?= $row['id']; ?>" hidden>
+                                        <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="University">University</label>
+                                            <input type="text" class="form-control" value="<?= $row['university']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="department">Department</label>
+                                            <input type="text" class="form-control" value="<?= $row['department']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="date_s">Start</label>
+                                            <input type="date" class="form-control" value="<?= $row['date_s']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="date_e">End</label>
+                                            <input type="date" class="form-control" value="<?= $row['date_e']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="activity">Activity</label>
+                                            <input type="text" class="form-control" value="<?= $row['activity']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="name">Name Surname</label>
+                                            <input type="text" class="form-control" value="<?= $row['name']; ?>"">
+                                        </div>
+                                        <div class=" form-group col-12">
+                                            <label class="form-label" for="details">Activity details</label>
+                                            <textarea class="form-control" name="details" style="height: 350px"><?= $row['details']; ?></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="submit" class="btn btn-danger" onclick="window.history.back();">Back</button>
-                                    </div>
+                                    <a href="#" class="btn btn-primary action-button float-end" onclick="window.history.back();">Back</a>
                                 </form>
-                                <!-- <?php echo '<pre>';
-                                        print_r($_POST);
-                                        echo '</pre>';
-                                        ?> -->
-                                <?php require_once 'Date-Information-Edit-db.php'; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </main>
     <a class="btn btn-fixed-end btn-warning btn-icon btn-setting" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
         <svg width="24" viewBox="0 0 24 24" class="animated-rotate" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -309,7 +268,6 @@
         </svg>
     </a>
     <!-- Wrapper End-->
-
     <!-- offcanvas start -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" data-bs-scroll="true" data-bs-backdrop="true" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">

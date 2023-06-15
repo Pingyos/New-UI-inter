@@ -196,7 +196,7 @@
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-4">
+                    <div class="col-xl-12 col-lg-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
@@ -215,47 +215,49 @@
                             ?>
                             <div class="card-body">
                                 <form>
-                                    <div class="form-group">
-                                        <label class="form-label" for="University">University</label>
-                                        <input type="text" class="form-control" value="<?= $row['university']; ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="Department">Department</label>
-                                        <input type="text" class="form-control" value="<?= $row['department']; ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="Country">Country</label>
-                                        <input type="text" class="form-control" value="<?= $row['country']; ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="form-label" for="QS Ranking">QS Ranking</label>
-                                        <input type="text" class="form-control" value="<?= $row['ranking']; ?>">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <label class="form-label" for="QS Ranking by Subject">QS Ranking by Subject</label>
-                                        <input type="text" class="form-control" value="<?= $row['qs_suject']; ?>"">
-                                    </div>
-                                    <div class=" form-group mb-0">
-                                        <label class="form-label" for="Specialization">Specialization</label>
-                                        <input type="text" class="form-control" value="<?= $row['spec']; ?>">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <label class="form-label" for="Comments">Comments</label>
-                                        <input type="text" class="form-control" value="<?= $row['comments_u']; ?>">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <label class="form-label" for="MOU/MOA">MOU/MOA</label>
-                                        <input type="text" class="form-control" value="<?= $row['mou']; ?>">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <label class="form-label" for="Active">Active</label>
-                                        <input type="text" class="form-control" value="<?= $row['expired']; ?> / <?= $row['signed']; ?>">
+                                    <div class="row">
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="University">University</label>
+                                            <input type="text" class="form-control" value="<?= $row['university']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="Department">Department</label>
+                                            <input type="text" class="form-control" value="<?= $row['department']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="Country">Country</label>
+                                            <input type="text" class="form-control" value="<?= $row['country']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="QS Ranking">QS Ranking</label>
+                                            <input type="text" class="form-control" value="<?= $row['ranking']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="QS Ranking by Subject">QS Ranking by Subject</label>
+                                            <input type="text" class="form-control" value="<?= $row['qs_suject']; ?>"">
+                                        </div>
+                                        <div class=" form-group col-6">
+                                            <label class="form-label" for="Specialization">Specialization</label>
+                                            <input type="text" class="form-control" value="<?= $row['spec']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="Comments">Comments</label>
+                                            <input type="text" class="form-control" value="<?= $row['comments_u']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="MOU/MOA">MOU/MOA</label>
+                                            <input type="text" class="form-control" value="<?= $row['mou']; ?>">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="Active">Active</label>
+                                            <input type="text" class="form-control" value="<?= $row['expired']; ?> / <?= $row['signed']; ?>">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="col-xl-12 col-lg-10">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
@@ -273,11 +275,11 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Detail</th>
                                                 <th>Start</th>
                                                 <th>End</th>
-                                                <th>Activity types</th>
+                                                <th>Activity</th>
                                                 <th>Agreement Details</th>
+                                                <th>Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -292,6 +294,18 @@
                                             ?>
                                                 <tr>
                                                     <td> <?= $countrow ?></td>
+                                                    <?php
+                                                    setlocale(LC_TIME, 'en_US'); // Set the locale to English (United States)
+                                                    $date_s_formatted = strftime('%d %b %Y', strtotime($t1['date_s']));
+                                                    ?>
+                                                    <td><?php echo $date_s_formatted; ?></td>
+                                                    <?php
+                                                    setlocale(LC_TIME, 'en_US'); // Set the locale to English (United States)
+                                                    $date_e_formatted = strftime('%d %b %Y', strtotime($t1['date_e']));
+                                                    ?>
+                                                    <td><?php echo $date_e_formatted; ?></td>
+                                                    <td><?= $t1['activity']; ?></td>
+                                                    <td><?= nl2br($t1['details']); ?></td>
                                                     <td>
                                                         <div class="flex align-items-center list-user-action">
                                                             <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" href="Date-Information-View.php?id=<?= $t1['id']; ?>">
@@ -324,18 +338,6 @@
                                                             </a>
                                                         </div>
                                                     </td>
-                                                    <?php
-                                                    setlocale(LC_TIME, 'en_US'); // Set the locale to English (United States)
-                                                    $date_s_formatted = strftime('%d %b %Y', strtotime($t1['date_s']));
-                                                    ?>
-                                                    <td><?php echo $date_s_formatted; ?></td>
-                                                    <?php
-                                                    setlocale(LC_TIME, 'en_US'); // Set the locale to English (United States)
-                                                    $date_e_formatted = strftime('%d %b %Y', strtotime($t1['date_e']));
-                                                    ?>
-                                                    <td><?php echo $date_e_formatted; ?></td>
-                                                    <td><?= $t1['activity']; ?></td>
-                                                    <td><?= nl2br($t1['details']); ?></td>
                                                 </tr>
                                             <?php
                                                 $countrow++;
@@ -345,11 +347,11 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Detail</th>
                                                 <th>Start</th>
                                                 <th>End</th>
-                                                <th>Activity types</th>
+                                                <th>Activity</th>
                                                 <th>Agreement Details</th>
+                                                <th>Detail</th>
                                             </tr>
                                         </thead>
                                     </table>

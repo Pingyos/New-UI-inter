@@ -204,7 +204,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form id="form-wizard1" class="mt-3 text-center">
+                                <form method="post" class="mt-3 text-center">
                                     <?php
                                     if (isset($_GET['id'])) {
                                         require_once 'connect.php';
@@ -218,65 +218,68 @@
                                         }
                                     } //isset
                                     ?>
-                                    <fieldset>
-                                        <div class="form-card text-start">
-                                            <div class="row">
-                                                <input type="text" name="id" value="<?= $row['id']; ?>" hidden>
-                                                <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">University</label>
-                                                        <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
-                                                    </div>
+                                    <div class="form-card text-start">
+                                        <div class="row">
+                                            <input type="text" name="id" value="<?= $row['id']; ?>" hidden>
+                                            <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">University</label>
+                                                    <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Department</label>
-                                                        <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Department</label>
+                                                    <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Start</label>
-                                                        <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Start</label>
+                                                    <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">End</label>
-                                                        <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">End</label>
+                                                    <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Activity</label>
-                                                        <input type="text" name="activity" required value="<?= $row['activity']; ?>" class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Activity</label>
+                                                    <input type="text" name="activity" required value="<?= $row['activity']; ?>" class="form-control">
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Name Surname</label>
-                                                        <input type="text" name="name" value="<?= $row['name']; ?>" class="form-control">
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Name Surname</label>
+                                                    <input type="text" name="name" value="<?= $row['name']; ?>" class="form-control">
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Details</label>
-                                                        <textarea class="form-control" name="details" style="height: 250px"><?= $row['details']; ?></textarea>
-                                                    </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-label">Details</label>
+                                                    <textarea class="form-control" name="details" style="height: 250px"><?= $row['details']; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn btn-primary  action-button float-end">Next</button>
-                                    </fieldset>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary  action-button float-end">Submit</button>
                                 </form>
+                                <!-- <?php echo '<pre>';
+                                print_r($_POST);
+                                echo '</pre>';
+                                ?> -->
+                                <?php require_once 'Date-Information-Edit-db.php'; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </main>
     <a class="btn btn-fixed-end btn-warning btn-icon btn-setting" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
         <svg width="24" viewBox="0 0 24 24" class="animated-rotate" fill="none" xmlns="http://www.w3.org/2000/svg">

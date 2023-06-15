@@ -203,51 +203,54 @@
                                     <h4 class="card-title">Edit University Information</h4>
                                 </div>
                             </div>
+                            <?php
+                            if (isset($_GET['university_id'])) {
+                                require_once 'connect.php';
+                                $stmt = $conn->prepare("SELECT * FROM university WHERE university_id = ?");
+                                $stmt->execute([$_GET['university_id']]);
+                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                if ($stmt->rowCount() < 1) {
+                                    header('Location: index.php');
+                                    exit();
+                                }
+                            } else {
+                                header('Location: index.php');
+                                exit();
+                            }
+                            ?>
                             <div class="card-body">
                                 <form method="post" class="mt-3 text-center">
-                                    <?php
-                                    if (isset($_GET['university_id'])) {
-                                        require_once 'connect.php';
-                                        $stmt = $conn->prepare("SELECT* FROM university WHERE university_id=?");
-                                        $stmt->execute([$_GET['university_id']]);
-                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                                        if ($stmt->rowCount() < 1) {
-                                            header('Location: index.php');
-                                            exit();
-                                        }
-                                    }
-                                    ?>
                                     <div class="form-card text-start">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">University : *</label>
+                                                    <label class="form-label">University: *</label>
                                                     <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Department of : *</label>
+                                                    <label class="form-label">Department of: *</label>
                                                     <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">QS Ranking : *</label>
+                                                    <label class="form-label">QS Ranking: *</label>
                                                     <input type="text" name="ranking" required value="<?= $row['ranking']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">QS Ranking by Subject : *</label>
-                                                    <input type="text" name="qs_suject" required value="<?= $row['qs_suject']; ?>" class="form-control">
+                                                    <label class="form-label">QS Ranking by Subject: *</label>
+                                                    <input type="text" name="qs_subject" required value="<?= $row['qs_suject']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="form-label">MOU/MOA : *</label>
+                                                    <label class="form-label">MOU/MOA: *</label>
                                                     <select name="mou" class="form-control" required>
-                                                        <option><?= $row['mou']; ?></option>
+                                                        <option value="<?= $row['mou']; ?>"><?= $row['mou']; ?></option>
                                                         <option value="YES">YES</option>
                                                         <option value="NO">NO</option>
                                                     </select>
@@ -255,42 +258,38 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Signed : *</label>
+                                                    <label class="form-label">Signed: *</label>
                                                     <input type="date" name="signed" value="<?= $row['signed']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Expired : *</label>
+                                                    <label class="form-label">Expired: *</label>
                                                     <input type="date" name="expired" value="<?= $row['expired']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Country : *</label>
+                                                    <label class="form-label">Country: *</label>
                                                     <input type="text" name="country" required value="<?= $row['country']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Specialization : *</label>
+                                                    <label class="form-label">Specialization: *</label>
                                                     <input type="text" name="spec" required value="<?= $row['spec']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="form-label">Comments : *</label>
+                                                    <label class="form-label">Comments: *</label>
                                                     <textarea class="form-control" name="comments_u" style="height: 150px"><?= $row['comments_u']; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary  action-button float-end">UPDATE</button>
+                                    <button type="submit" class="btn btn-primary action-button float-end">UPDATE</button>
                                 </form>
-                                <!-- <?php echo '<pre>';
-                                        print_r($_POST);
-                                        echo '</pre>';
-                                        ?> -->
                                 <?php require_once 'Date-University-Edit-db.php'; ?>
                             </div>
                         </div>

@@ -27,4 +27,5 @@
     <!-- RTL Css -->
     <link rel="stylesheet" href="../assets/css/rtl.min.css" />
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 </head>

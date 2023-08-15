@@ -6,7 +6,6 @@ if (
   && isset($_POST['activity'])
   && isset($_POST['name'])
   && isset($_POST['details'])
-  && isset($_POST['department'])
 ) {
   require_once 'connect.php';
   $university = $_POST['university_name'];
@@ -16,11 +15,10 @@ if (
   $activity = implode(" , ", $_POST['activity']);
   $name = $_POST['name'];
   $details = $_POST['details'];
-  $department = $_POST['department'];
 
   // SQL insert
-  $stmt = $conn->prepare("INSERT INTO dateinter (university, university_id, department, date_s, date_e, activity, name, details)
-    VALUES (:university, :university_id, :department, :date_s, :date_e, :activity, :name, :details)");
+  $stmt = $conn->prepare("INSERT INTO dateinter (university, university_id, date_s, date_e, activity, name, details)
+    VALUES (:university, :university_id, :date_s, :date_e, :activity, :name, :details)");
 
   $stmt->bindParam(':university', $university, PDO::PARAM_STR);
   $stmt->bindParam(':university_id', $university_id, PDO::PARAM_STR);
@@ -29,7 +27,6 @@ if (
   $stmt->bindParam(':activity', $activity, PDO::PARAM_STR);
   $stmt->bindParam(':name', $name, PDO::PARAM_STR);
   $stmt->bindParam(':details', $details, PDO::PARAM_STR);
-  $stmt->bindParam(':department', $department, PDO::PARAM_STR);
 
   $result = $stmt->execute();
 
@@ -65,7 +62,7 @@ if (
           timer: 1500,
           showConfirmButton: false
         }, function(){
-          window.location.href = "Date-University.php";
+          window.location.href = "Date-University-View.php";
         });
       </script>';
   }

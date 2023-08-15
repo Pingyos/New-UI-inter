@@ -111,9 +111,9 @@
                                     <h4 class="card-title">Information</h4>
                                 </div>
                                 <div>
-                                    <a href="Date-Information-Add.php?university_id=<?= $row['university_id']; ?>" class="btn btn-link btn-soft-light">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">
                                         Add Information
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -209,7 +209,81 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLiveLabel">New University</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="form-card text-start">
 
+                                <div class="row">
+                                    <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
+                                    <input type="text" name="university_name" value="<?= $row['university']; ?>" hidden>
+                                    <input type="text" name="department" value="<?= $row['department']; ?>" hidden>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Start *</label>
+                                            <input type="date" name="date_s" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">End *</label>
+                                            <input type="date" name="date_e" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="exampleFormControlSelect1">Select Activities</label>
+                                            <div class="row">
+                                                <?php
+                                                require_once 'connect.php';
+
+                                                $sql = "SELECT activity FROM tage";
+                                                $result = $conn->query($sql);
+
+                                                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                                    echo '<div class="col-6"><input type="checkbox" name="activity[]" value="' . $row['activity'] . '"> ' . $row['activity'] . '</div>';
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Name Surname *</label>
+                                            <input type="text" name="name" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Details *</label>
+                                            <textarea class="form-control" name="details" style="height: 150px"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <?php
+                                require_once 'Date-Information-Add-db.php';
+                                // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                //     echo '<pre>';
+                                //     print_r($_POST);
+                                //     echo '</pre>';
+                                // }
+                                ?>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <a class="btn btn-fixed-end btn-warning btn-icon btn-setting" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
         <svg width="24" viewBox="0 0 24 24" class="animated-rotate" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -50,9 +50,119 @@
                                 <h4 class="card-title">University Datatables</h4>
                             </div>
                             <div>
-                                <a href="Date-University-Add.php" class="btn btn-link btn-soft-light">
-                                    Add University
-                                </a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">
+                                    New University
+                                </button>
+                            </div>
+                            <div class="modal fade" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLiveLabel">New University</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post" id="form-wizard1" class="mt-3 text-center">
+                                                <div class="form-card text-start">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">University : *</label>
+                                                                <input type="text" name="university" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Department of : *</label>
+                                                                <input type="text" name="department" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">QS Ranking : *</label>
+                                                                <input type="text" name="ranking" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">QS Ranking by Subject : *</label>
+                                                                <input type="text" name="qs_suject" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">MOU/MOA : *</label>
+                                                                <select name="mou" class="form-control" required>
+                                                                    <option>please select</option>
+                                                                    <option value="YES">YES</option>
+                                                                    <option value="NO">NO</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Signed : *</label>
+                                                                <input type="date" name="signed" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Expired : *</label>
+                                                                <input type="date" name="expired" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-group">
+                                                                <label for="country" class="control-label mb-1">Country <span style="color:red;">*</span> </label>
+                                                                <?php
+                                                                require_once 'connect.php';
+                                                                $query = "
+                                                            SELECT country_name FROM apps_countries 
+                                                            ORDER BY country_name ASC
+                                                        ";
+                                                                $result = $conn->query($query);
+                                                                ?>
+                                                                <select name="country" required class="form-control">
+                                                                    <option value="">Select Country</option>
+                                                                    <?php
+                                                                    foreach ($result as $row) {
+                                                                        echo '<option value="' . $row["country_name"] . '">' . $row["country_name"] . '</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Specialization : *</label>
+                                                                <input type="text" name="spec" required class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="form-label">Comments : *</label>
+                                                                <textarea class="form-control" name="comments_u" style="height: 150px"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <?php
+                                                    require_once 'Date-University-Add-db.php';
+                                                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                                        echo '<pre>';
+                                                        print_r($_POST);
+                                                        echo '</pre>';
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">

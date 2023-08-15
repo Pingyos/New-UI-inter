@@ -136,8 +136,15 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary action-button float-end">UPDATE</button>
+                                    <?php
+                                    require_once 'Date-University-Edit-db.php';
+                                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                        echo '<pre>';
+                                        print_r($_POST);
+                                        echo '</pre>';
+                                    }
+                                    ?>
                                 </form>
-                                <?php require_once 'Date-University-Edit-db.php'; ?>
                             </div>
                         </div>
                     </div>

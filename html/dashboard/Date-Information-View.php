@@ -74,10 +74,10 @@
                                             <input type="text" class="form-control" value="<?= $row['university']; ?>">
                                         </div>
                                         <div class="form-group col-6">
-                                            <label class="form-label" for="department">Department</label>
-                                            <input type="text" class="form-control" value="<?= $row['department']; ?>">
+                                            <label class="form-label" for="name">Name Surname</label>
+                                            <input type="text" class="form-control" value="<?= $row['name']; ?>"">
                                         </div>
-                                        <div class="form-group col-6">
+                                        <div class=" form-group col-6">
                                             <label class="form-label" for="date_s">Start</label>
                                             <input type="date" class="form-control" value="<?= $row['date_s']; ?>">
                                         </div>
@@ -85,14 +85,11 @@
                                             <label class="form-label" for="date_e">End</label>
                                             <input type="date" class="form-control" value="<?= $row['date_e']; ?>">
                                         </div>
-                                        <div class="form-group col-6">
+                                        <div class="form-group col-12">
                                             <label class="form-label" for="activity">Activity</label>
                                             <input type="text" class="form-control" value="<?= $row['activity']; ?>">
                                         </div>
-                                        <div class="form-group col-6">
-                                            <label class="form-label" for="name">Name Surname</label>
-                                            <input type="text" class="form-control" value="<?= $row['name']; ?>"">
-                                        </div>
+
                                         <div class=" form-group col-12">
                                             <label class="form-label" for="details">Activity details</label>
                                             <textarea class="form-control" name="details" style="height: 350px"><?= $row['details']; ?></textarea>

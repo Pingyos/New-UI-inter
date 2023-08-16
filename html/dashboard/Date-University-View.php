@@ -125,7 +125,6 @@
                                                 <th>Start</th>
                                                 <th>End</th>
                                                 <th>Activity</th>
-                                                <th>Agreement Details</th>
                                                 <th>Detail</th>
                                             </tr>
                                         </thead>
@@ -152,7 +151,6 @@
                                                     ?>
                                                     <td><?php echo $date_e_formatted; ?></td>
                                                     <td><?= nl2br($t1['activity']); ?></td>
-                                                    <td><?= nl2br($t1['details']); ?></td>
                                                     <td>
                                                         <div class="flex align-items-center list-user-action">
                                                             <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" href="Date-Information-View.php?id=<?= $t1['id']; ?>">
@@ -197,7 +195,6 @@
                                                 <th>Start</th>
                                                 <th>End</th>
                                                 <th>Activity</th>
-                                                <th>Agreement Details</th>
                                                 <th>Detail</th>
                                             </tr>
                                         </thead>

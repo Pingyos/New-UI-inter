@@ -53,32 +53,27 @@
                             <div class="card-body">
                                 <form method="post" class="mt-3 text-center">
                                     <?php
+                                    require_once 'connect.php'; // เรียกไฟล์ connect.php ไว้ด้านบนเพื่อให้สามารถเชื่อมต่อฐานข้อมูลได้
+
                                     if (isset($_GET['id'])) {
-                                        require_once 'connect.php';
-                                        $stmt = $conn->prepare("SELECT* FROM dateinter WHERE id=?");
+                                        $stmt = $conn->prepare("SELECT * FROM dateinter WHERE id = ?");
                                         $stmt->execute([$_GET['id']]);
                                         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                                        //ถ้าคิวรี่ผิดพลาดให้กลับไปหน้า index
+
                                         if ($stmt->rowCount() < 1) {
                                             header('Location: index.php');
                                             exit();
                                         }
-                                    } //isset
+                                    }
                                     ?>
                                     <div class="form-card text-start">
                                         <div class="row">
-                                            <input type="text" name="id" value="<?= $row['id']; ?>" hidden>
-                                            <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
+                                            <input type="hidden" name="id" value="<?= $row['id']; ?>">
+                                            <input type="hidden" name="university_id" value="<?= $row['university_id']; ?>">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">University</label>
                                                     <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Department</label>
-                                                    <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -90,7 +85,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">End</label>
-                                                    <input type="date" name="date_s" required value="<?= $row['date_s']; ?>" class="form-control">
+                                                    <input type="date" name="date_e" required value="<?= $row['date_e']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -99,17 +94,18 @@
                                                     <div class="col-6 justify-content-center align-items-center">
                                                         <select name="activity[]" data-placeholder="<?= $row['activity']; ?>" multiple class="js-select2" tabindex="5">
                                                             <option><?= $row['activity']; ?></option>
-                                                            <option>Study visitors (Pay)</option>
-                                                            <option>Training Course</option>
-                                                            <option>Student Exchange</option>
-                                                            <option>Visiting Scholar</option>
-                                                            <option>Special Lecture</option>
-                                                            <option>Sign MOU/MOA</option>
-                                                            <option>Academic Collaboration Negotiation</option>
-                                                            <option>Cooperation in foreign countries</option>
-                                                            <option>Co-research</option>
-                                                            <option>Seminar/meeting</option>
-                                                            <option>Uisiturs</option>
+                                                            <?php
+                                                            require_once 'connect.php';
+
+                                                            // ดึงข้อมูลจากฐานข้อมูล
+                                                            $sql = "SELECT activity FROM tage";
+                                                            $result = $conn->query($sql);
+
+                                                            // สร้างตัวเลือกในแบบฟอร์ม
+                                                            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                                                                echo '<option>' . $row['activity'] . '</option>';
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -117,8 +113,20 @@
                                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
                                                 <script src="js/main.js"></script>
                                             </div>
-
-                                            <div class="col-md-6">
+                                            <?php
+                                            if (isset($_GET['id'])) {
+                                                require_once 'connect.php';
+                                                $stmt = $conn->prepare("SELECT* FROM dateinter WHERE id=?");
+                                                $stmt->execute([$_GET['id']]);
+                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                //ถ้าคิวรี่ผิดพลาดให้กลับไปหน้า index
+                                                if ($stmt->rowCount() < 1) {
+                                                    header('Location: index.php');
+                                                    exit();
+                                                }
+                                            } //isset
+                                            ?>
+                                            <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="form-label">Name Surname</label>
                                                     <input type="text" name="name" value="<?= $row['name']; ?>" class="form-control">
@@ -133,17 +141,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group float-end">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary" name="update">Submit</button>
                                         <a href="#" class="btn btn-danger" onclick="window.history.back();">Back</a>
-
                                     </div>
-
+                                    <?php
+                                    if (isset($_POST['update'])) {
+                                        require_once 'Date-Information-Edit-db.php';
+                                        // echo '<pre>';
+                                        // print_r($_POST);
+                                        // echo '</pre>';
+                                    }
+                                    ?>
                                 </form>
-                                <!-- <?php echo '<pre>';
-                                        print_r($_POST);
-                                        echo '</pre>';
-                                        ?> -->
-                                <?php require_once 'Date-Information-Edit-db.php'; ?>
+
+
                             </div>
                         </div>
                     </div>

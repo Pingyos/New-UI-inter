@@ -67,31 +67,31 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">University : *</label>
+                                                                <label class="form-label">University : <span style="color:red;">*</span></label>
                                                                 <input type="text" name="university" required class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">Department of : *</label>
+                                                                <label class="form-label">Department of : <span style="color:red;">*</span></label>
                                                                 <input type="text" name="department" required class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">QS Ranking : *</label>
+                                                                <label class="form-label">QS Ranking : <span style="color:red;">*</span></label>
                                                                 <input type="text" name="ranking" required class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">QS Ranking by Subject : *</label>
+                                                                <label class="form-label">QS Ranking by Subject : <span style="color:red;">*</span></label>
                                                                 <input type="text" name="qs_suject" required class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                                <label class="form-label">MOU/MOA : *</label>
+                                                                <label class="form-label">MOU/MOA : <span style="color:red;">*</span></label>
                                                                 <select name="mou" class="form-control" required>
                                                                     <option>please select</option>
                                                                     <option value="YES">YES</option>
@@ -102,13 +102,13 @@
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">Signed : *</label>
+                                                                <label class="form-label">Signed : </label>
                                                                 <input type="date" name="signed" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">Expired : *</label>
+                                                                <label class="form-label">Expired : </label>
                                                                 <input type="date" name="expired" class="form-control">
                                                             </div>
                                                         </div>
@@ -135,13 +135,13 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label class="form-label">Specialization : *</label>
-                                                                <input type="text" name="spec" required class="form-control">
+                                                                <label class="form-label">Specialization : </label>
+                                                                <input type="text" name="spec" class="form-control">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                                <label class="form-label">Comments : *</label>
+                                                                <label class="form-label">Comments :</label>
                                                                 <textarea class="form-control" name="comments_u" style="height: 150px"></textarea>
                                                             </div>
                                                         </div>

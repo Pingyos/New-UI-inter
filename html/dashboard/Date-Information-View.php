@@ -71,28 +71,28 @@
                                         <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="University">University</label>
-                                            <input type="text" class="form-control" value="<?= $row['university']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['university']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="name">Name Surname</label>
-                                            <input type="text" class="form-control" value="<?= $row['name']; ?>"">
+                                            <input type="text" class="form-control" value="<?= $row['name']; ?>"" readonly>
                                         </div>
                                         <div class=" form-group col-6">
                                             <label class="form-label" for="date_s">Start</label>
-                                            <input type="date" class="form-control" value="<?= $row['date_s']; ?>">
+                                            <input type="date" class="form-control" value="<?= $row['date_s']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="date_e">End</label>
-                                            <input type="date" class="form-control" value="<?= $row['date_e']; ?>">
+                                            <input type="date" class="form-control" value="<?= $row['date_e']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-12">
                                             <label class="form-label" for="activity">Activity</label>
-                                            <input type="text" class="form-control" value="<?= $row['activity']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['activity']; ?>" readonly>
                                         </div>
 
                                         <div class=" form-group col-12">
                                             <label class="form-label" for="details">Activity details</label>
-                                            <textarea class="form-control" name="details" style="height: 350px"><?= $row['details']; ?></textarea>
+                                            <textarea readonly class="form-control" name="details" style="height: 350px"><?= $row['details']; ?></textarea>
                                         </div>
                                     </div>
                                     <a href="#" class="btn btn-danger float-end" onclick="window.history.back();">Back</a>

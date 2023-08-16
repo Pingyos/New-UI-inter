@@ -316,16 +316,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-xl-12">
-                    <div class="card" data-aos="fade-up" data-aos-delay="900">
-                        <div class="flex-wrap card-header d-flex justify-content-between">
-                            <div class="header-title">
-                                <h4 class="card-title">Earnings</h4>
-                                <div id="regions_div"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </main>
@@ -571,40 +561,6 @@
 
     <!-- App Script -->
     <script src="../assets/js/hope-ui.js" defer></script>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['geochart'],
-        });
-        google.charts.setOnLoadCallback(drawRegionsMap);
-
-        function drawRegionsMap() {
-            var data = google.visualization.arrayToDataTable([
-                ['Country', 'Popularity'],
-                <?php
-                require_once 'connect.php';
-
-                $stmtC = $conn->prepare("SELECT country, COUNT(*) AS count FROM university GROUP BY country");
-                $stmtC->execute();
-
-                while ($row = $stmtC->fetch(PDO::FETCH_ASSOC)) {
-                    echo "['" . $row['country'] . "', " . $row['count'] . "],";
-                }
-                ?>
-            ]);
-
-            var options = {
-                colorAxis: {
-                    colors: ['#4fc3f7', '#01579b']
-                } // เปลี่ยนระดับสีตรงนี้
-            };
-
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-            chart.draw(data, options);
-        }
-    </script>
 </body>
 
 </html>

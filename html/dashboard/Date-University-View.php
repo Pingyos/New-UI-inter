@@ -216,7 +216,6 @@
                     <div class="modal-body">
                         <form method="post" enctype="multipart/form-data">
                             <div class="form-card text-start">
-
                                 <div class="row">
                                     <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
                                     <input type="text" name="university_name" value="<?= $row['university']; ?>" hidden>

@@ -65,39 +65,48 @@
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label class="form-label" for="University">University</label>
-                                            <input type="text" class="form-control" value="<?= $row['university']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['university']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="Department">Department</label>
-                                            <input type="text" class="form-control" value="<?= $row['department']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['department']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="Country">Country</label>
-                                            <input type="text" class="form-control" value="<?= $row['country']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['country']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="QS Ranking">QS Ranking</label>
-                                            <input type="text" class="form-control" value="<?= $row['ranking']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['ranking']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="QS Ranking by Subject">QS Ranking by Subject</label>
-                                            <input type="text" class="form-control" value="<?= $row['qs_suject']; ?>"">
+                                            <input type="text" class="form-control" value="<?= $row['qs_suject']; ?>" readonly>
                                         </div>
                                         <div class=" form-group col-6">
                                             <label class="form-label" for="Specialization">Specialization</label>
-                                            <input type="text" class="form-control" value="<?= $row['spec']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['spec']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="Comments">Comments</label>
-                                            <input type="text" class="form-control" value="<?= $row['comments_u']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['comments_u']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="MOU/MOA">MOU/MOA</label>
-                                            <input type="text" class="form-control" value="<?= $row['mou']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['mou']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="Active">Active</label>
-                                            <input type="text" class="form-control" value="<?= $row['expired']; ?> / <?= $row['signed']; ?>">
+                                            <input type="text" class="form-control" value="<?= $row['expired']; ?> / <?= $row['signed']; ?>" readonly>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="form-label" for="Active">Active</label>
+                                            <?php
+                                            $signed = strtotime($row['signed']);
+                                            $expired = strtotime($row['expired']);
+                                            $remainingDays = ceil(($expired - $signed) / (60 * 60 * 24));
+                                            ?>
+                                            <input type="text" class="form-control text-danger" value="<?= $remainingDays ?> days" readonly>
                                         </div>
                                     </div>
                                 </form>

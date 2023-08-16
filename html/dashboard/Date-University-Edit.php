@@ -133,15 +133,16 @@
                                                     <textarea class="form-control" name="comments_u" style="height: 150px"><?= $row['comments_u']; ?></textarea>
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="university_id" value="<?= $row['university_id']; ?>">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary action-button float-end">UPDATE</button>
+                                    <div class="form-group float-end">
+                                        <button type="submit" class="btn btn-primary" name="update">Submit</button>
+                                        <a href="#" class="btn btn-danger" onclick="window.history.back();">Back</a>
+                                    </div>
                                     <?php
-                                    require_once 'Date-University-Edit-db.php';
-                                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                                        echo '<pre>';
-                                        print_r($_POST);
-                                        echo '</pre>';
+                                    if (isset($_POST['update'])) {
+                                        require_once 'Date-University-Edit-db.php';
                                     }
                                     ?>
                                 </form>

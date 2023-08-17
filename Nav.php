@@ -33,8 +33,8 @@
                     <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="assets/images/avatars/01.png" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                         <div class="caption ms-3 d-none d-md-block ">
-                            <!-- <h6 class="mb-0 caption-title"><?php echo $json['firstname_EN']; ?></h6>
-                            <p class="mb-0 caption-sub-title"><?php echo $json['organization_name_EN']; ?></p> -->
+                            <h6 class="mb-0 caption-title"><?php echo $json['firstname_EN']; ?></h6>
+                            <p class="mb-0 caption-sub-title"><?php echo $json['organization_name_EN']; ?></p>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -51,7 +51,7 @@
             <div class="col-md-12">
                 <div class="flex-wrap d-flex justify-content-between align-items-center">
                     <div>
-                        <!-- <h1><?php echo $json['firstname_EN']; ?> <?php echo $json['lastname_EN']; ?></h1> -->
+                        <h1><?php echo $json['firstname_EN']; ?> <?php echo $json['lastname_EN']; ?></h1>
                     </div>
 
                 </div>
@@ -67,4 +67,3 @@
         <img src="assets/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX">
     </div>
 </div>
-<!-- Nav Header Component Start -->

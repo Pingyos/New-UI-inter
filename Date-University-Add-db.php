@@ -9,6 +9,7 @@
   && isset($_POST['comments_u'])
   && isset($_POST['spec'])
   && isset($_POST['qs_suject'])
+  && isset($_POST['reg_by'])
 ) {
   // ไฟล์เชื่อมต่อฐานข้อมูล
   require_once 'connect.php';
@@ -38,9 +39,9 @@
   } else {
     // SQL insert
     $stmt = $conn->prepare("INSERT INTO university
-(university,department, signed, expired, ranking, mou, country, comments_u ,spec ,qs_suject)
+(university,department, signed, expired, ranking, mou, country, comments_u ,spec ,reg_by,qs_suject)
 VALUES
-(:university, :department, :signed, :expired, :ranking, :mou, :country, :comments_u, :spec, :qs_suject)");
+(:university, :department, :signed, :expired, :ranking, :mou, :country, :comments_u, :spec, :reg_by, :qs_suject)");
 
     // bindParam data type
     $stmt->bindParam(':university', $_POST['university'], PDO::PARAM_STR);
@@ -53,8 +54,7 @@ VALUES
     $stmt->bindParam(':comments_u', $_POST['comments_u'], PDO::PARAM_STR);
     $stmt->bindParam(':spec', $_POST['spec'], PDO::PARAM_STR);
     $stmt->bindParam(':qs_suject', $_POST['qs_suject'], PDO::PARAM_STR);
-
-
+    $stmt->bindParam(':reg_by', $_POST['reg_by'], PDO::PARAM_STR);
     $result = $stmt->execute();
     echo '
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>

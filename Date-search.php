@@ -160,6 +160,7 @@
 
                                             $stmt->execute();
                                             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
                                     ?>
                                             <table id="datatable" class="table table-striped" data-toggle="data-table">
                                                 <thead>

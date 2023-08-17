@@ -56,6 +56,7 @@
                                             <form method="post" id="form-wizard1" class="mt-3 text-center">
                                                 <div class="form-card text-start">
                                                     <div class="row">
+
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label class="form-label">University : <span style="color:red;">*</span></label>
@@ -140,6 +141,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
+
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                     <?php
@@ -151,6 +153,8 @@
                                                     }
                                                     ?>
                                                 </div>
+                                                <h7><?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?></h7>
+                                                <input type="hidden" name="reg_by" value="<?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?>">
                                             </form>
                                         </div>
                                     </div>

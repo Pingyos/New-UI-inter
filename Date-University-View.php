@@ -86,11 +86,17 @@
                                             <input type="text" class="form-control" value="<?= $row['mou']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
-                                            <label class="form-label" for="Active">Active</label>
-                                            <input type="text" class="form-control" value="<?= $row['signed']; ?> / <?= $row['expired']; ?>" readonly>
+                                            <label class="form-label" for="Active">Date MOU(D/M/Y)</label>
+                                            <?php
+                                            $signed = !empty($row['signed']) ? date('d/m/Y', strtotime($row['signed'])) : '';
+                                            $expired = !empty($row['expired']) ? date('d/m/Y', strtotime($row['expired'])) : '';
+
+                                            echo "<input type='text' class='form-control' value='$signed To $expired' readonly>";
+                                            ?>
                                         </div>
+
                                         <div class="form-group col-6">
-                                            <label class="form-label" for="Active">Active</label>
+                                            <label class="form-label" for="expired">Expired</label>
                                             <?php
                                             if (!empty($row['expired'])) {
                                                 $expiredTimestamp = strtotime($row['expired']);
@@ -131,8 +137,6 @@
                                             }
                                             ?>
                                         </div>
-
-
                                     </div>
                                 </form>
                             </div>

@@ -84,7 +84,7 @@
                                                             <div class="form-group">
                                                                 <label class="form-label">MOU/MOA : <span style="color:red;">*</span></label>
                                                                 <select name="mou" class="form-control" required>
-                                                                    <option>please select</option>
+                                                                    <option value="" disabled selected>Please select</option>
                                                                     <option value="YES">YES</option>
                                                                     <option value="NO">NO</option>
                                                                 </select>
@@ -103,6 +103,7 @@
                                                                 <input type="date" name="expired" class="form-control">
                                                             </div>
                                                         </div>
+
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <label for="country" class="control-label mb-1">Country <span style="color:red;">*</span> </label>

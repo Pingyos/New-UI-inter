@@ -1,14 +1,14 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['login_info'])) {
-//     header('Location: login.php');
-//     exit;
-// }
-// if (isset($_SESSION['login_info'])) {
-//     $json = $_SESSION['login_info'];
-// } else {
-//     echo "You are not logged in.";
-// }
+session_start();
+if (!isset($_SESSION['login_info'])) {
+    header('Location: login.php');
+    exit;
+}
+if (isset($_SESSION['login_info'])) {
+    $json = $_SESSION['login_info'];
+} else {
+    echo "You are not logged in.";
+}
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -38,110 +38,111 @@
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
                                 <div class="header-title">
-                                    <h4 class="card-title">New University</h4>
+                                    <h4 class="card-title">Edit University Information</h4>
                                 </div>
                             </div>
+                            <?php
+                            if (isset($_GET['university_id'])) {
+                                require_once 'connect.php';
+                                $stmt = $conn->prepare("SELECT * FROM university WHERE university_id = ?");
+                                $stmt->execute([$_GET['university_id']]);
+                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                if ($stmt->rowCount() < 1) {
+                                    header('Location: index.php');
+                                    exit();
+                                }
+                            } else {
+                                header('Location: index.php');
+                                exit();
+                            }
+                            ?>
                             <div class="card-body">
                                 <form method="post" class="mt-3 text-center">
-                                    <?php
-                                    if (isset($_GET['university_id'])) {
-                                        require_once 'connect.php';
-                                        $stmt = $conn->prepare("SELECT * FROM university WHERE university_id=?");
-                                        $stmt->execute([$_GET['university_id']]);
-                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                                        $university = $row['university'];
-                                    }
-                                    ?>
                                     <div class="form-card text-start">
                                         <div class="row">
-                                            <input type="text" name="university_id" value="<?= $row['university_id']; ?>" hidden>
-                                            <input type="text" name="university_name" value="<?= $row['university']; ?>" hidden>
-                                            <input type="text" name="department" value="<?= $row['department']; ?>" hidden>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Start *</label>
-                                                    <input type="date" name="date_s" required class="form-control">
+                                                    <label class="form-label">University: *</label>
+                                                    <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">End *</label>
-                                                    <input type="date" name="date_e" required class="form-control">
+                                                    <label class="form-label">Department of: *</label>
+                                                    <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Activity types *</label>
-                                                    <div class="col-6 justify-content-center align-items-center">
-                                                        <select name="activity[]" data-placeholder="Choose" multiple class="js-select2" tabindex="5">
-                                                            <option value="" label="default"></option>
-                                                            <option>Study visitors (Pay)</option>
-                                                            <option>Training Course</option>
-                                                            <option>Student Exchange</option>
-                                                            <option>Visiting Scholar</option>
-                                                            <option>Special Lecture</option>
-                                                            <option>Sign MOU/MOA</option>
-                                                            <option>Academic Collaboration Negotiation</option>
-                                                            <option>Cooperation in foreign countries</option>
-                                                            <option>Co-research</option>
-                                                            <option>Seminar/meeting</option>
-                                                            <option>Visiturs</option>
-                                                        </select>
-                                                    </div>
-
+                                                    <label class="form-label">QS Ranking: *</label>
+                                                    <input type="text" name="ranking" required value="<?= $row['ranking']; ?>" class="form-control">
                                                 </div>
-                                                <script src="js/jquery.min.js"></script>
-                                                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
-                                                <script src="js/main.js"></script>
                                             </div>
-
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Name Surname *</label>
-                                                    <input type="text" name="name" required class="form-control">
+                                                    <label class="form-label">QS Ranking by Subject: *</label>
+                                                    <input type="text" name="qs_subject" required value="<?= $row['qs_suject']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="form-label">Details *</label>
-                                                    <textarea class="form-control" name="details" style="height: 150px"></textarea>
+                                                    <label class="form-label">MOU/MOA: *</label>
+                                                    <select name="mou" class="form-control" required>
+                                                        <option value="<?= $row['mou']; ?>"><?= $row['mou']; ?></option>
+                                                        <option value="YES">YES</option>
+                                                        <option value="NO">NO</option>
+                                                    </select>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Signed: *</label>
+                                                    <input type="date" name="signed" value="<?= $row['signed']; ?>" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Expired: *</label>
+                                                    <input type="date" name="expired" value="<?= $row['expired']; ?>" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Country: *</label>
+                                                    <input type="text" name="country" required value="<?= $row['country']; ?>" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Specialization: *</label>
+                                                    <input type="text" name="spec" required value="<?= $row['spec']; ?>" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-label">Comments: *</label>
+                                                    <textarea class="form-control" name="comments_u" style="height: 150px"><?= $row['comments_u']; ?></textarea>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="university_id" value="<?= $row['university_id']; ?>">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary  action-button float-end">Submit</button>
+                                    <div class="form-group float-end">
+                                        <button type="submit" class="btn btn-primary" name="update">Submit</button>
+                                        <a href="#" class="btn btn-danger" onclick="window.history.back();">Back</a>
+                                    </div>
+                                    <?php
+                                    if (isset($_POST['update'])) {
+                                        require_once 'Date-University-Edit-db.php';
+                                    }
+                                    ?>
                                 </form>
-                                <!-- <?php echo '<pre>';
-                                        print_r($_POST);
-                                        echo '</pre>';
-                                        ?> -->
-                                <?php require_once 'Date-Information-Add-db.php'; ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer Section Start -->
-        <footer class="footer">
-            <div class="footer-body">
-                <ul class="left-panel list-inline mb-0 p-0">
-                    <li class="list-inline-item"><a href="../dashboard/extra/privacy-policy.html">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="../dashboard/extra/terms-of-service.html">Terms of Use</a></li>
-                </ul>
-                <div class="right-panel">
-                    ©<script>
-                        document.write(new Date().getFullYear())
-                    </script> Hope UI, Made with
-                    <span class="text-gray">
-                        <svg width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.85 2.50065C16.481 2.50065 17.111 2.58965 17.71 2.79065C21.401 3.99065 22.731 8.04065 21.62 11.5806C20.99 13.3896 19.96 15.0406 18.611 16.3896C16.68 18.2596 14.561 19.9196 12.28 21.3496L12.03 21.5006L11.77 21.3396C9.48102 19.9196 7.35002 18.2596 5.40102 16.3796C4.06102 15.0306 3.03002 13.3896 2.39002 11.5806C1.26002 8.04065 2.59002 3.99065 6.32102 2.76965C6.61102 2.66965 6.91002 2.59965 7.21002 2.56065H7.33002C7.61102 2.51965 7.89002 2.50065 8.17002 2.50065H8.28002C8.91002 2.51965 9.52002 2.62965 10.111 2.83065H10.17C10.21 2.84965 10.24 2.87065 10.26 2.88965C10.481 2.96065 10.69 3.04065 10.89 3.15065L11.27 3.32065C11.3618 3.36962 11.4649 3.44445 11.554 3.50912C11.6104 3.55009 11.6612 3.58699 11.7 3.61065C11.7163 3.62028 11.7329 3.62996 11.7496 3.63972C11.8354 3.68977 11.9247 3.74191 12 3.79965C13.111 2.95065 14.46 2.49065 15.85 2.50065ZM18.51 9.70065C18.92 9.68965 19.27 9.36065 19.3 8.93965V8.82065C19.33 7.41965 18.481 6.15065 17.19 5.66065C16.78 5.51965 16.33 5.74065 16.18 6.16065C16.04 6.58065 16.26 7.04065 16.68 7.18965C17.321 7.42965 17.75 8.06065 17.75 8.75965V8.79065C17.731 9.01965 17.8 9.24065 17.94 9.41065C18.08 9.58065 18.29 9.67965 18.51 9.70065Z" fill="currentColor"></path>
-                        </svg>
-                    </span> by <a href="https://iqonic.design/">IQONIC Design</a>.
-                </div>
-            </div>
-        </footer>
-        <!-- Footer Section End -->
 
     </main>
     <a class="btn btn-fixed-end btn-warning btn-icon btn-setting" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">

@@ -1,9 +1,9 @@
 <?php
-// if (isset($_SESSION['login_info'])) {
-//     $json = $_SESSION['login_info'];
-// } else {
-//     echo "You are not logged in.";
-// }
+if (isset($_SESSION['login_info'])) {
+    $json = $_SESSION['login_info'];
+} else {
+    echo "You are not logged in.";
+}
 ?>
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
     <div class="container-fluid navbar-inner">

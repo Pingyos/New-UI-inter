@@ -137,6 +137,7 @@
                                             }
                                             ?>
                                         </div>
+                                        <h8>Update : <?= $row['dateCreate']; ?></h8>
                                     </div>
                                 </form>
                             </div>

@@ -153,8 +153,8 @@
                                                     }
                                                     ?>
                                                 </div>
-                                                <h7><?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?></h7>
-                                                <input type="hidden" name="reg_by" value="<?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?>">
+                                                <!-- <h7><?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?></h7>
+                                                <input type="hidden" name="reg_by" value="<?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?>"> -->
                                             </form>
                                         </div>
                                     </div>

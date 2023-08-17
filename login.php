@@ -4,7 +4,7 @@
 
 $client_id = 'FypqdUCwYUxQ0WHk6dARVQd6Nn0NeHKEpDmUAkYy';        // The client ID assigned to you by the provider
 $client_secret = 'ZEkWrCsv1MgnD3d2utP140rrh3AwJ0VXrb2rDuSj';    // The client secret assigned to you by the provider
-$redirect_uri = 'https://app.nurse.cmu.ac.th/inter/html/dashboard/login.php';                // redirect_uri (This file url)
+$redirect_uri = 'https://app.nurse.cmu.ac.th/inter/login.php';                // redirect_uri (This file url)
 
 $oauth_scope = "cmuitaccount.basicinfo"; // Scopes with space-delimited
 $oauth_auth_url = "https://oauth.cmu.ac.th/v1/Authorize.aspx";

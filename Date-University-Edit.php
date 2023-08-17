@@ -75,19 +75,19 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">QS Ranking:</label>
-                                                    <input type="text" name="ranking"  value="<?= $row['ranking']; ?>" class="form-control">
+                                                    <input type="text" name="ranking" value="<?= $row['ranking']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">QS Ranking by Subject:</label>
-                                                    <input type="text" name="qs_subject"  value="<?= $row['qs_suject']; ?>" class="form-control">
+                                                    <input type="text" name="qs_subject" value="<?= $row['qs_suject']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="form-label">MOU/MOA:</label>
-                                                    <select name="mou" class="form-control" >
+                                                    <select name="mou" class="form-control">
                                                         <option value="<?= $row['mou']; ?>"><?= $row['mou']; ?></option>
                                                         <option value="YES">YES</option>
                                                         <option value="NO">NO</option>
@@ -109,7 +109,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Country:</label>
-                                                    <input type="text" name="country"  value="<?= $row['country']; ?>" class="form-control">
+                                                    <input type="text" name="country" value="<?= $row['country']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -125,6 +125,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" name="university_id" value="<?= $row['university_id']; ?>">
+                                            <input type="hidden" name="dateCreate" value="<?= date('Y-m-d H:i:s'); ?>">
                                         </div>
                                     </div>
                                     <div class="form-group float-end">

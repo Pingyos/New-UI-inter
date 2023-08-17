@@ -11,6 +11,7 @@ if (
   && isset($_POST['qs_subject'])
   && isset($_POST['signed'])
   && isset($_POST['expired'])
+  && isset($_POST['dateCreate'])
 ) {
   require_once 'connect.php'; // ตรวจสอบให้แน่ใจว่าไฟล์นี้ถูก include แล้ว
 
@@ -25,9 +26,10 @@ if (
   $qs_subject = $_POST['qs_subject'];
   $signed = $_POST['signed'];
   $expired = $_POST['expired'];
+  $dateCreate = $_POST['dateCreate'];
 
   // ทำการเตรียมคำสั่ง SQL UPDATE
-  $stmt = $conn->prepare("UPDATE  university SET university=:university, signed=:signed, expired=:expired, department=:department, ranking=:ranking,mou=:mou, country=:country, spec=:spec, qs_suject=:qs_suject, comments_u=:comments_u WHERE university_id=:university_id");
+  $stmt = $conn->prepare("UPDATE university SET university=:university, signed=:signed, expired=:expired, department=:department, ranking=:ranking, mou=:mou, country=:country, spec=:spec, qs_suject=:qs_suject, comments_u=:comments_u, dateCreate=:dateCreate WHERE university_id=:university_id");
   $stmt->bindParam(':university_id', $university_id, PDO::PARAM_STR);
   $stmt->bindParam(':department', $department, PDO::PARAM_STR);
   $stmt->bindParam(':spec', $spec, PDO::PARAM_STR);
@@ -39,6 +41,7 @@ if (
   $stmt->bindParam(':qs_suject', $qs_subject, PDO::PARAM_STR);
   $stmt->bindParam(':signed', $signed, PDO::PARAM_STR);
   $stmt->bindParam(':expired', $expired, PDO::PARAM_STR);
+  $stmt->bindParam(':dateCreate', $dateCreate, PDO::PARAM_STR);
   $stmt->execute();
 
   // SweetAlert

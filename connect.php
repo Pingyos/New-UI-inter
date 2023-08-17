@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "edonation";
-$password = "edonate@FON";
+$username = "root";
+$password = "";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=inter;charset=utf8", $username, $password);
@@ -11,4 +11,3 @@ try {
   echo "Connection failed: " . $e->getMessage();
 }
 date_default_timezone_set('Asia/Bangkok');
-

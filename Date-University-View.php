@@ -87,17 +87,52 @@
                                         </div>
                                         <div class="form-group col-6">
                                             <label class="form-label" for="Active">Active</label>
-                                            <input type="text" class="form-control" value="<?= $row['expired']; ?> / <?= $row['signed']; ?>" readonly>
+                                            <input type="text" class="form-control" value="<?= $row['signed']; ?> / <?= $row['expired']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
-                                            <label class="form-label" for="Active">Expired</label>
+                                            <label class="form-label" for="Active">Active</label>
                                             <?php
-                                            $signed = strtotime($row['signed']);
-                                            $expired = strtotime($row['expired']);
-                                            $remainingDays = ceil(($signed - $expired) / (60 * 60 * 24));
+                                            if (!empty($row['expired'])) {
+                                                $expiredTimestamp = strtotime($row['expired']);
+                                                $currentTimestamp = time();
+
+                                                if ($currentTimestamp < $expiredTimestamp) {
+                                                    $remainingDays = ceil(($expiredTimestamp - $currentTimestamp) / (60 * 60 * 24));
+
+                                                    // Calculate years, months, days
+                                                    $years = floor($remainingDays / 365);
+                                                    $remainingDays %= 365;
+                                                    $months = floor($remainingDays / 30);
+                                                    $days = $remainingDays % 30;
+
+                                                    $remainingLabel = "";
+                                                    if ($years > 0) {
+                                                        $remainingLabel .= "$years years";
+                                                    }
+                                                    if ($months > 0) {
+                                                        if (!empty($remainingLabel)) {
+                                                            $remainingLabel .= ", ";
+                                                        }
+                                                        $remainingLabel .= "$months months";
+                                                    }
+                                                    if ($days > 0) {
+                                                        if (!empty($remainingLabel)) {
+                                                            $remainingLabel .= ", ";
+                                                        }
+                                                        $remainingLabel .= "$days days";
+                                                    }
+
+                                                    echo "<input type='text' class='form-control text-danger' value='$remainingLabel remaining' readonly>";
+                                                } else {
+                                                    echo "<input type='text' class='form-control text-danger' value='Expired' readonly>";
+                                                }
+                                            } else {
+                                                echo "<input type='text' class='form-control text-danger' value='Not registered' readonly>";
+                                            }
                                             ?>
-                                            <input type="text" class="form-control text-danger" value="<?= $remainingDays ?> days" readonly>
                                         </div>
+
+
                                     </div>
                                 </form>
                             </div>

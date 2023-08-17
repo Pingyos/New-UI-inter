@@ -62,32 +62,32 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">University: *</label>
-                                                    <input type="text" name="university" required value="<?= $row['university']; ?>" class="form-control">
+                                                    <label class="form-label">University:</label>
+                                                    <input type="text" name="university" value="<?= $row['university']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Department of: *</label>
-                                                    <input type="text" name="department" required value="<?= $row['department']; ?>" class="form-control">
+                                                    <label class="form-label">Department of:</label>
+                                                    <input type="text" name="department" value="<?= $row['department']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">QS Ranking: *</label>
-                                                    <input type="text" name="ranking" required value="<?= $row['ranking']; ?>" class="form-control">
+                                                    <label class="form-label">QS Ranking:</label>
+                                                    <input type="text" name="ranking"  value="<?= $row['ranking']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">QS Ranking by Subject: *</label>
-                                                    <input type="text" name="qs_subject" required value="<?= $row['qs_suject']; ?>" class="form-control">
+                                                    <label class="form-label">QS Ranking by Subject:</label>
+                                                    <input type="text" name="qs_subject"  value="<?= $row['qs_suject']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="form-label">MOU/MOA: *</label>
-                                                    <select name="mou" class="form-control" required>
+                                                    <label class="form-label">MOU/MOA:</label>
+                                                    <select name="mou" class="form-control" >
                                                         <option value="<?= $row['mou']; ?>"><?= $row['mou']; ?></option>
                                                         <option value="YES">YES</option>
                                                         <option value="NO">NO</option>
@@ -96,26 +96,26 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Signed: *</label>
+                                                    <label class="form-label">Signed:</label>
                                                     <input type="date" name="signed" value="<?= $row['signed']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Expired: *</label>
+                                                    <label class="form-label">Expired:</label>
                                                     <input type="date" name="expired" value="<?= $row['expired']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Country: *</label>
-                                                    <input type="text" name="country" required value="<?= $row['country']; ?>" class="form-control">
+                                                    <label class="form-label">Country:</label>
+                                                    <input type="text" name="country"  value="<?= $row['country']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="form-label">Specialization: *</label>
-                                                    <input type="text" name="spec" required value="<?= $row['spec']; ?>" class="form-control">
+                                                    <label class="form-label">Specialization:</label>
+                                                    <input type="text" name="spec" value="<?= $row['spec']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">

@@ -1,14 +1,14 @@
 <?php
-session_start();
-if (!isset($_SESSION['login_info'])) {
-    header('Location: login.php');
-    exit;
-}
-if (isset($_SESSION['login_info'])) {
-    $json = $_SESSION['login_info'];
-} else {
-    echo "You are not logged in.";
-}
+// session_start();
+// if (!isset($_SESSION['login_info'])) {
+//     header('Location: login.php');
+//     exit;
+// }
+// if (isset($_SESSION['login_info'])) {
+//     $json = $_SESSION['login_info'];
+// } else {
+//     echo "You are not logged in.";
+// }
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -90,11 +90,11 @@ if (isset($_SESSION['login_info'])) {
                                             <input type="text" class="form-control" value="<?= $row['expired']; ?> / <?= $row['signed']; ?>" readonly>
                                         </div>
                                         <div class="form-group col-6">
-                                            <label class="form-label" for="Active">Active</label>
+                                            <label class="form-label" for="Active">Expired</label>
                                             <?php
                                             $signed = strtotime($row['signed']);
                                             $expired = strtotime($row['expired']);
-                                            $remainingDays = ceil(($expired - $signed) / (60 * 60 * 24));
+                                            $remainingDays = ceil(($signed - $expired) / (60 * 60 * 24));
                                             ?>
                                             <input type="text" class="form-control text-danger" value="<?= $remainingDays ?> days" readonly>
                                         </div>

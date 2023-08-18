@@ -170,6 +170,7 @@
                                             <th>University/Institute</th>
                                             <th>Country</th>
                                             <th>QS ranking</th>
+                                            <th>Expired </th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -187,6 +188,7 @@
                                                 <td><?= $t1['university']; ?> - <?= $t1['department']; ?></td>
                                                 <td><?= $t1['country']; ?></td>
                                                 <td><?= $t1['ranking']; ?></td>
+                                                <td><?= $t1['expired']; ?></td>
                                                 <td>
                                                     <div class="flex align-items-center list-user-action">
                                                         <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" href="Date-University-View.php?university_id=<?= $t1['university_id']; ?>">
@@ -220,7 +222,6 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
                                         <?php $countrow++;
                                         }
                                         ?>
@@ -231,6 +232,7 @@
                                             <th>University/Institute</th>
                                             <th>Country</th>
                                             <th>QS ranking</th>
+                                            <th>Expired </th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

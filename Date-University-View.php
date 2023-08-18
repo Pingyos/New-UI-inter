@@ -138,6 +138,7 @@
                                             ?>
                                         </div>
                                         <h8>Update : <?= $row['dateCreate']; ?></h8>
+                                        <h8>by : <?= $row['reg_by']; ?></h8>
                                     </div>
                                 </form>
                             </div>

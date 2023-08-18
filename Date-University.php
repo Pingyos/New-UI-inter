@@ -153,8 +153,8 @@
                                                     }
                                                     ?>
                                                 </div>
-                                                <!-- <h7><?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?></h7>
-                                                <input type="hidden" name="reg_by" value="<?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?>"> -->
+                                                <!-- <h7><?php echo $json['firstname_EN'] . ' ' . $json['lastname_EN']; ?></h7> -->
+                                                <input type="hidden" name="reg_by" value="7">
                                             </form>
                                         </div>
                                     </div>
@@ -170,7 +170,7 @@
                                             <th>University/Institute</th>
                                             <th>Country</th>
                                             <th>QS ranking</th>
-                                            <th>Expired </th>
+                                            <th>Expired</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -222,6 +222,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+
                                         <?php $countrow++;
                                         }
                                         ?>
@@ -232,7 +233,7 @@
                                             <th>University/Institute</th>
                                             <th>Country</th>
                                             <th>QS ranking</th>
-                                            <th>Expired </th>
+                                            <th>Expired</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

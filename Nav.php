@@ -7,10 +7,8 @@
 ?>
 <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar">
     <div class="container-fluid navbar-inner">
-        <a href="index.php" class="navbar-brand">
-            <!--Logo start-->
+        <a href="dashboard/index.php" class="navbar-brand">
 
-            <!--logo End-->
             <h4 class="logo-title">Inter Database</h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
@@ -20,27 +18,29 @@
                 </svg>
             </i>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-                <span class="mt-2 navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-            </span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/images/avatars/01.png" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
-                        <div class="caption ms-3 d-none d-md-block ">
-                            <!-- <h6 class="mb-0 caption-title"><?php echo $json['firstname_EN']; ?></h6>
-                            <p class="mb-0 caption-sub-title"><?php echo $json['organization_name_EN']; ?></p> -->
-                        </div>
+                    <a href="#" class="search-toggle nav-link" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="assets/images/Flag/flag001.png" class="img-fluid rounded-circle" alt="user" style="height: 30px; min-width: 30px; width: 30px;">
+                        <span class="bg-primary"></span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                    </ul>
                 </li>
+
+                <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/images/avatars/01.png" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
+                            <div class="caption ms-3 d-none d-md-block ">
+                                <!-- <h6 class="mb-0 caption-title"><?php echo $json['firstname_EN']; ?></h6>
+                            <p class="mb-0 caption-sub-title"><?php echo $json['organization_name_EN']; ?></p> -->
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </ul>
         </div>
     </div>

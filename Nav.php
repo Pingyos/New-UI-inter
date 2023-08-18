@@ -51,7 +51,7 @@
             <div class="col-md-12">
                 <div class="flex-wrap d-flex justify-content-between align-items-center">
                     <div>
-                        <!-- <h1><?php echo $json['firstname_EN']; ?> <?php echo $json['lastname_EN']; ?></h1> -->
+                        <h1>International Collaboration Database</h1>
                     </div>
 
                 </div>
